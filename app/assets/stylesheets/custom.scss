@@ -1,0 +1,21 @@
+@import "bootstrap/dist/css/bootstrap";
+
+@import "./base/variables";
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: $body-clr;
+}
+
+#sticky-footer {
+  flex-shrink: 0;
+  background-color: $main-clr;
+}

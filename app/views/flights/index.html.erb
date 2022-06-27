@@ -1,0 +1,9 @@
+<div class="flight-container">
+  <h2 class="text-center mt-4 flight-title">Search for flights</h2>
+  <div class="flight-form">
+    <%= render 'search_form', flight: @flight %>
+  </div>
+  <div class="flight-list m-5">
+    <%= render 'flight', flights: @flights %>
+  </div>
+</div>

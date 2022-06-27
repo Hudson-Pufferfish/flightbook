@@ -1,0 +1,33 @@
+<div class="form-container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_with(scope: flight, url: flights_path, method: :get, local: true, class: "shadow pt-5 pb-3 mt-3 rounded col-7 text-dark form-container__fields") do |f| %>
+        <div class="form-group row mx-auto">
+          <%= f.label(:origin, class: "col-2 col-form-label text-dark font-weight-bold" )%>
+          <div class= "col-8 ml-3 ">
+            <%= f.select(:origin, options_for_select( list_airports, params[:origin]), {}, html_options = { class: "shadow-sm custom-select ml-1" }) %>
+          </div>
+        </div>
+        <div class="form-group row mx-auto">
+          <%= f.label(:destination, class: "col-2  col-form-label text-dark font-weight-bold" )%>
+          <div class= "col-8 ml-3 ">
+            <%= f.select(:destination, options_for_select( list_airports, params[:destination]), {}, html_options = { class: "shadow-sm custom-select ml-1" }) %>
+          </div>
+        </div>
+        <div class="form-group row mx-auto">
+          <%= f.label :date, class: "col-2 col-form-label text-dark font-weight-bold" %>
+          <div class="col-4 ml-3 ">
+            <%= f.date_field :date, value: params[:date],min: Date.new(2022, 7, 1), max: Date.new(2023, 2, 1), class: "shadow-sm custom-select ml-1"  %>
+          </div>
+          <%= f.label(:tickets, "Passengers", class: "col-2  col-form-label text-dark font-weight-bold" )%>
+          <div class= "col-2 ">
+            <%= f.select(:tickets,options_for_select( 1..8, params[:tickets] ), {}, html_options = { class: "shadow-sm ml-1 custom-select" }) %>
+          </div>
+        </div>
+        <div class="form-group row justify-content-center">
+          <%= f.submit("Search", class: "btn btn-outline-light btn-lg", id: "search-btn") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
