@@ -1,1 +1,29 @@
-
+<div class="form-container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'shared/errors', obj: @booking %>
+      <%= form_with(model: @booking, class: "shadow pt-5 pb-3 m-3 rounded col-10 text-dark mx-auto form-container__fields", local: true) do |f| %>
+        <%= f.hidden_field :flight_id, value: params[:flight_id].to_i %>
+        <%= f.hidden_field :tickets, value: params[:passengers].to_i %>
+        <div class="passenger-form-container">
+          <%= f.fields_for :passengers do |passengers_form| %>
+            <div class="form-group row">
+              <%= passengers_form.label :name, "Passenger Name", class: "col-2 col-form-label text-nowrap" %>
+              <div class="col-4">
+                <%= passengers_form.text_field :name, class: "form-control shadow-sm rounded ml-2 ", placeholder: "Passenger Name" %>
+              </div>
+              <%= passengers_form.label :email, class: "col-1 col-form-label" %>
+              <div class="col-4">
+                <%= passengers_form.email_field :email, class: "form-control shadow-sm rounded", placeholder: "Passenger Email" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="form-group row d-flex justify-content-center mt-4">
+          <%= link_to 'Cancel',flights_path, class: "btn btn-outline  cancel-btn mr-4" %>
+          <%= f.submit( "Book Flight", class: "btn btn-outline-primary search-btn") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

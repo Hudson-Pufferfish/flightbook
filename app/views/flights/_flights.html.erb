@@ -1,0 +1,37 @@
+<% if flights %>
+  <h4 class = "text-center mb-3"><%= pluralize(flights.length, 'flight') %> matched your search</h4>
+  <div class="container table-container">
+    <table class="table table-hover table-light">
+      <thead class = "table-head">
+        <tr>
+          <th scope="col">Flight #</th>
+          <th scope="col">Departs</th>
+          <th scope="col">Arrives</th>
+          <th scope="col">Date</th>
+          <th scope="col">Departure</th>
+          <th scope="col">Duration</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flights.each do |flight| %>
+          <tr>
+            <td><%= flight.formatted_flight_number %></td>
+            <td><%= flight.origin.code %></td>
+            <td><%= flight.destination.code %></td>
+            <td><%= flight.formatted_date %></td>
+            <td><%= flight.formatted_time %></td>
+            <td><%= flight.formatted_duration %></td>
+            <td class='td-booking'>
+              <%= button_to 'Book Flight',
+                new_booking_path,
+                method: :get,
+                params: { flight_id: flight.id, tickets: params[:tickets] },
+                class: 'booking-btn' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

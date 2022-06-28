@@ -1,1 +1,10 @@
-<%= render 'ticket' %>
+<div class="booking-show m-3">
+  <%= render 'flights/flight', flight: @booking.flight %>
+  <h3 class = "text-center m-3 ticket-confirmation">Confirmation Code: <%= @booking.confirmation %></h3>
+  <% @booking.passengers.each_with_index do |passenger, index| %>
+    <div class="ticket-container">
+      <h5 class = "text-capitalize text-center">#<%= index + 1 %> Boarding pass for <%= passenger.name.present? ? passenger.name : "Anonymous" %> </h5>
+      <%= render 'ticket', flight: @booking.flight, passenger: passenger %>
+    </div>
+  <% end %>
+</div>

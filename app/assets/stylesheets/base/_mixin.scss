@@ -1,0 +1,12 @@
+@import "./variables";
+
+@mixin btn($color: $main-clr) {
+  margin-top: 0.6em;
+  color: $color;
+  border: 1px solid $color;
+  transition: all 0.25s linear;
+  &:hover {
+    background-color: $color;
+    color: white;
+  }
+}

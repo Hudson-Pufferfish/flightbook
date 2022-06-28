@@ -3,49 +3,25 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "bootstrap/dist/css/bootstrap";
 @import "./base/variables";
+@import "./base/mixin";
+@import "./components/button";
 
 .flight-container {
   .flight-title {
     color: $main-clr;
   }
-  .flight-form {
-    .form-container {
-      &__fields {
-        background-color: #fff;
-        margin: auto;
-      }
-    }
-    #search-btn {
-      margin-top: 0.6em;
-      color: $main-clr;
-      border: 1px solid $main-clr;
-      transition: all 0.2s linear;
-      &:hover {
-        background-color: $main-clr;
-        color: white;
-      }
-    }
+}
+
+.form-container {
+  &__fields {
+    background-color: #fff;
+    margin: auto;
   }
-  .flight-list {
-    .table-container {
-      .table-head {
-        background-color: $main-clr;
-        color: $body-clr;
-      }
-      #booking-btn {
-        background-color: $body-clr--light;
-        outline: none;
-        border: none;
-        border-radius: 0.4em;
-        color: $main-clr;
-        padding: 0.2em 0.6em;
-        border: 1px solid $main-clr;
-        transition: all 0.2s linear;
-        &:hover {
-          background-color: $main-clr;
-          color: white;
-        }
-      }
-    }
+}
+
+.table-container {
+  .table-head {
+    background-color: $main-clr;
+    color: $body-clr;
   }
 }

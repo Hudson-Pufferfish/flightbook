@@ -134,12 +134,12 @@ ActiveRecord::Base.transaction do
   airports[10] = Airport.create!(code: 'EWR', name: 'Newark Liberty International Airport', city: 'Newark')
   airports[11] = Airport.create!(code: 'MSP', name: 'Minneapolis-Saint Paul International Airport', city: 'Minneapolis')
 
-  Date.new(2022, 7, 1).upto(Date.new(2023, 2, 1)).each do |date|
+  Date.new(2022, 7, 1).upto(Date.new(2023, 5, 1)).each do |date|
     airports.each do |origin|
       airports.each do |destination|
         next if origin == destination
 
-        rand(2..5).times { Flight.create!(
+        rand(2..3).times { Flight.create!(
                                 time: random_time(date).strftime("%R"),
                                 date: random_time(date).strftime("%Y-%m-%d"),
                                 origin: origin,

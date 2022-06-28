@@ -17,7 +17,7 @@
         <div class="form-group row mx-auto">
           <%= f.label :date, class: "col-2 col-form-label text-dark font-weight-bold" %>
           <div class="col-4 ml-3 ">
-            <%= f.date_field :date, value: params[:date],min: Date.new(2022, 7, 1), max: Date.new(2023, 2, 1), class: "shadow-sm custom-select ml-1"  %>
+            <%= f.date_field :date, value: params[:date],min: Date.new(2022, 7, 1), max: Date.new(2023, 5, 1), class: "shadow-sm custom-select ml-1"  %>
           </div>
           <%= f.label(:tickets, "Passengers", class: "col-2  col-form-label text-dark font-weight-bold" )%>
           <div class= "col-2 ">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <%= f.submit("Search", class: "btn btn-outline-light btn-lg", id: "search-btn") %>
+          <%= f.submit("Search", class: "btn btn-outline-light btn-lg search-btn") %>
         </div>
       <% end %>
     </div>

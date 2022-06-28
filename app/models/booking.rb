@@ -15,8 +15,10 @@ class Booking < ApplicationRecord
   
   accepts_nested_attributes_for :passengers
 
-  before_validation :find_or_create_passenger, :create_confirmation
+  before_validation :find_or_create_passenger
   before_save :ensure_confirmation
+
+
 
   private
 
