@@ -1,0 +1,15 @@
+Flightbook Air
+Thank you for booking Flight <%= @booking.flight.formatted_flight_number %> with Hudson's Airport! Please review your trip details below.
+Confirmation Code: <%= @booking.confirmation %>
+Flight #:  <%= @booking.flight.formatted_flight_number %>
+Departs:   <%=  @booking.flight.origin.city (@booking.flight.origin.code) %>
+Arrives:   <%= @booking.flight.destination.city (@booking.flight.destination.code) %>
+Date:      <%= @booking.flight.formatted_date %>
+Departure:<%= @booking.flight.formatted_time %>
+Boarding: <%= @booking.flight.boarding_time %>
+Duration:  <%= @booking.flight.formatted_duration %>
+Passengers:
+<% @booking.passengers.each do |passenger| %>
+  <%= passenger.name %>
+  <%= passenger.email %>
+<% end %>

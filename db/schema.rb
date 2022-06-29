@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_06_25_030849) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "confirmation", null: false
-    t.bigint "flight_id", null: false
+    t.integer "flight_id", null: false
     t.index ["confirmation"], name: "index_bookings_on_confirmation", unique: true
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
   end

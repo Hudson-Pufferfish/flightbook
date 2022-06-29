@@ -9,7 +9,10 @@
 #  updated_at :datetime         not null
 #
 class Passenger < ApplicationRecord
-  before_save { self.email = email.downcase }
+  before_save do
+    self.email = email.downcase
+    self.name = name.titleize
+  end
 
   has_many :passenger_bookings, dependent: :destroy
   has_many :bookings, through: :passenger_bookings, inverse_of: :passengers
@@ -19,7 +22,7 @@ class Passenger < ApplicationRecord
   validates :name, presence: true,
                  length: { minimum: 2, maximum: 100 }
                  
-  validates :email, uniqueness: { case_sensitive: false }, if: -> { !email.blank? },
+  validates :email, if: -> { !email.blank? },
                 length: { maximum: 105 },
                 format: { with: VALID_EMAIL_REGEX }
 

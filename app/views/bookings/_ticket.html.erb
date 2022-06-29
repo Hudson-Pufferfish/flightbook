@@ -33,7 +33,7 @@
   </ul>
   <div class="ticket">
     <% seat = ('A'..'Z').to_a.sample(1).join + ((1..9).to_a).sample(2).join %>
-    <% gate = ((1..9).to_a).sample(2).join + ('A'..'Z').to_a.sample(1).join %>
+    <% gate = flight.flight_number.to_s.first(2) + ('A'..'Z').to_a.sample(1).join %>
     <span class="airline">Flightbook Airlines</span>
     <span class="airline airlineslip">Flightbook Airlines</span>
     <span class="boarding">Boarding pass</span>

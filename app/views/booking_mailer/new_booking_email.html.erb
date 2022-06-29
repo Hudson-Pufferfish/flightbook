@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your booking is confirmed!</title>
+  </head>
+  <style>
+    table, th, td {
+    border: 1px solid black;
+    }
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+
+      td, th {
+      border: 1px solid #dddddd;
+      text-align: center;
+
+      padding: 8px;
+      }
+
+      thead {
+      background-color: #dddddd;
+      }
+  </style>
+  <body>
+    <div>
+      <table class = "table-flight">
+        <thead>
+          <tr>
+            <th scope="col">Flight #</th>
+            <th scope="col">Departs</th>
+            <th scope="col">Arrives</th>
+            <th scope="col">Date</th>
+            <th scope="col">Departure</th>
+            <th scope="col">Boarding Time</th>
+            <th scope="col">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @booking.flight.formatted_flight_number %></td>
+            <td><%= @booking.flight.origin.code %></td>
+            <td><%= @booking.flight.destination.code %></td>
+            <td><%= @booking.flight.formatted_date %></td>
+            <td><%= @booking.flight.formatted_time %></td>
+            <td><%= @booking.flight.boarding_time %></td>
+            <td><%= @booking.flight.formatted_duration %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% @booking.passengers.each_with_index do |passenger, index| %>
+        <table class = "table-passenger">
+          <thead>
+            <tr>
+              <th scope="col">Confirmation Code</th>
+              <th scope="col">Passenger <%=  index + 1 %> Name</th>
+              <th scope="col">Passenger Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @booking.confirmation %></td>
+              <td><%= passenger.name %></td>
+              <td><%= passenger.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </body>
+</html>

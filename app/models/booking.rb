@@ -15,18 +15,11 @@ class Booking < ApplicationRecord
   
   accepts_nested_attributes_for :passengers
 
-  before_validation :find_or_create_passenger
   before_save :ensure_confirmation
 
 
 
   private
-
-  def find_or_create_passenger
-    self.passengers = self.passengers.map do |passenger|
-      Passenger.find_or_create_by(email: passenger.email, name: passenger.name)
-    end
-  end
   
   def ensure_confirmation
     return if confirmation
