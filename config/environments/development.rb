@@ -34,11 +34,11 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   #NOTE For Mailer
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
 
   #NOTE For Letter Opener
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.perform_deliveries = true
 
   host = 'localhost:3000' #replace with your own url
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
